@@ -2,21 +2,25 @@ import React from "react"
 import { useState } from "react";
 import './App.css'
 import Add from "./Add";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 const App=()=>
 {
-  const [event,setevent]=useState([
+  const [event,setevent]=useState
+  ([
     {
-      id:0,
-      name:'hackathon',
-      date:'2-3-2024',
-      place:'ai dept'
+    id:0,
+    name:'hackathon',
+    date:'2-3-2024',
+    place:'ai dept'
     },
     {
-      id:1,
-      name:'codeathon',
-      date:'1-4-2024',
-      place:'it dept'
+    id:1,
+    name:'codeathon',
+    date:'1-4-2024',
+    place:'it dept'
     }
   ])
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -40,14 +44,14 @@ const App=()=>
 
   const deleteevent=(id)=>{
     const deleteitem=event.filter((i)=>i.id!==id)
-    
     setevent(deleteitem)
   }
 
   return(
-    <div>
-      <button onClick={handlesubmit}className="button">Add An Event</button>
-
+    <div className="container">
+      <button onClick={handlesubmit} className="button">
+      <FontAwesomeIcon icon={faPlus} style={{ marginRight: '5px' }} /> Add An Event
+      </button>
       {isFormVisible && (
       <Add
       name={name}
@@ -59,12 +63,12 @@ const App=()=>
       handleFormSubmit={handleFormSubmit}
     />
       )}
-      <div>
-        <ul>
+      <div className="list">
         {event.map((i)=>(
           <li key={i.id}>
+           <div className="event-item">
               <div className="container">
-              <div className="inner-container">
+                <div className="inner-container">
                 Event name: {i.name}
                 <br />
                 starts on: {i.date}
@@ -73,9 +77,9 @@ const App=()=>
               </div>
               <button  onClick={()=>deleteevent(i.id)} className="button">Delete Event</button>
             </div>
+            </div>
           </li>
         ))}
-        </ul>
       </div>
     </div>
   )

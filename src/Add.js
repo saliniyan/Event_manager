@@ -1,9 +1,10 @@
 import React from "react";
+import './App'
 
 const Add=({name,setName,date,setDate,place,setPlace,handleFormSubmit})=>
 {
     return(
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} className="add-form">
        <input 
          type="text" 
          name="name" 
@@ -31,7 +32,7 @@ const Add=({name,setName,date,setDate,place,setPlace,handleFormSubmit})=>
          required 
        />
        <br />
-       <button type="submit">Submit</button>
+       <button type="submit" className="button">Submit</button>
      </form>
       )
 }
