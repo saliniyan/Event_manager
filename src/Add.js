@@ -1,40 +1,28 @@
 import React from "react";
-import './App'
+import './Add.css';
 
-const Add=({name,setName,date,setDate,place,setPlace,handleFormSubmit})=>
-{
-    return(
-        <form onSubmit={handleFormSubmit} className="add-form">
-       <input 
-         type="text" 
-         name="name" 
-         placeholder="Event Name" 
-         value={name} 
-         onChange={(e) => setName(e.target.value)} 
-         required
-       />
-       <br />
-       <input 
-         type="date" 
-         name="date" 
-         placeholder="Event Date" 
-         value={date} 
-         onChange={(e) => setDate(e.target.value)} 
-         required 
-       />
-       <br />
-       <input 
-         type="text" 
-         name="place" 
-         placeholder="Event Place" 
-         value={place} 
-         onChange={(e) => setPlace(e.target.value)} 
-         required 
-       />
-       <br />
-       <button type="submit" className="button">Submit</button>
-     </form>
-      )
-}
+const Add = ({ name, setName, date, setDate, place, setPlace, handleFormSubmit }) => {
+  return (
+    <div className="form-container">
+      <form onSubmit={handleFormSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Event Name:</label>
+          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date:</label>
+          <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="place">Place:</label>
+          <input type="text" id="place" value={place} onChange={(e) => setPlace(e.target.value)} required />
+        </div>
+        <div className="form-group">
+          <button type="submit">Add Event</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default Add;
