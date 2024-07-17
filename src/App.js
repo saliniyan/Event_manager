@@ -4,6 +4,7 @@ import Admin from "./Admin";
 import Student from "./Student";
 import Home from "./Home"
 import { BrowserRouter as Router ,Route, Routes ,Link } from "react-router-dom";
+import FormPage from "./FormPage";
 
 const App = () => {
     const [event,setevent]=useState
@@ -44,6 +45,7 @@ const App = () => {
                 />
                 <Route path="/Student" element={<Student event={event} />}
                 />
+                <Route path="/form" element={<FormPage />} />
             </Routes>
         </div>  
         </Router>

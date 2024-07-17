@@ -1,6 +1,12 @@
 import React from "react";
+import {useNavigate } from "react-router-dom";
 const Student=({event})=>
 {
+  const navigate=useNavigate()
+  const handleform=(eventname)=>
+  {
+    navigate('/form',{state:{eventname}})
+  }
     return(
         <div className="list">
         {event.map((i)=>(
@@ -14,7 +20,9 @@ const Student=({event})=>
                 <br />
                 On: {i.place}
               </div>
-              <button>Apply for Event</button>
+              <button onClick={()=>handleform(i.name)}>
+                Apply for Event
+              </button>
             </div>
             </div>
           </li>
