@@ -25,11 +25,13 @@ const Admin=({event,setevent})=>
     const listitem=[...event,addnewevent]
     setevent(listitem)
     setIsFormVisible(false); // hide the form after submission
+    localStorage.setItem("Events",JSON.stringify(listitem))
   };
 
   const deleteevent=(id)=>{
     const deleteitem=event.filter((i)=>i.id!==id)
     setevent(deleteitem)
+    localStorage.setItem("Events",JSON.stringify(deleteitem))
   }
 
   return(

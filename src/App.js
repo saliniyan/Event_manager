@@ -1,43 +1,29 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Admin from "./Admin";
 import Student from "./Student";
 import Home from "./Home"
 import { BrowserRouter as Router ,Route, Routes ,Link } from "react-router-dom";
 import FormPage from "./FormPage";
+import './App.css'
 
 const App = () => {
-    const [event,setevent]=useState
-    ([  
-    {
-    id:0,
-    name:'hackathon',
-    date:'2-3-2024',
-    place:'ai dept'
-    },
-    {
-    id:1,
-    name:'codeathon',
-    date:'1-4-2024',
-    place:'it dept'
-    }
-    ])
-
+    const [event, setevent] = useState(() => {
+        const savedEvents = localStorage.getItem('Events');
+        return savedEvents ? JSON.parse(savedEvents) : [];
+      });
+    
+      useEffect(() => {
+        localStorage.setItem('Events', JSON.stringify(event));
+      }, [event]);
+      
     return(
         <Router>
         <div>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/Admin">Admin</Link>
-                    </li>
-                    <li>
-                        <Link to="/Student">Student</Link>
-                    </li>
-                </ul>
+            <nav className="nav">
+                <Link to="/">Home</Link>
+                <Link to="/Admin">Admin</Link>
+                <Link to="/Student">Student</Link>
             </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
