@@ -23,3 +23,10 @@
 
 # Server environment variables
 /server/.env
+
+#node
+/server/node_modules/
+    .env
+    .DS_Store
+    npm-debug.log
+    yarn-error.log
