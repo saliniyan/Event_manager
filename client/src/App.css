@@ -5,6 +5,7 @@ body {
   color: #333;
   font-size: 16px; 
   transition: background-color 0.3s ease; /* Transition for background color */
+  background-color: #fff2f2;
 }
 
 
@@ -67,7 +68,7 @@ transition: background-color 0.3s ease; /* Transition for background color */
 }
 
 .button {
-  background-color: #28a745;
+  background-color: rgb(37, 105, 165);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -78,7 +79,7 @@ transition: background-color 0.3s ease; /* Transition for background color */
 }
 
 .button:hover {
-  background-color: #218838;
+  background-color: rgb(17, 69, 114);
 }
 
 * {
@@ -89,13 +90,13 @@ transition: background-color 0.3s ease; /* Transition for background color */
 
 .nav {
   display: block;
-  background-color: #333;
+  background-color: #34495e;
   overflow: hidden;
 }
 
 .nav a {
   display: block;
-  color: white;
+  color: #ecf0f1;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
@@ -103,8 +104,8 @@ transition: background-color 0.3s ease; /* Transition for background color */
 }
 
 .nav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #243647;
+  color: rgb(255, 255, 255);
 }
 
 .nav a.active {

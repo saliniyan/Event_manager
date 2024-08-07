@@ -1,26 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?t=st=1722697670~exp=1722701270~hmac=ea8bc2bdd75a03c93cdd4e51fa93cc84fd95c7cd575545b2db77b8d84be3c101&w=1380');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
-  .home-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-image:url('https://img.freepik.com/free-vector/blue-abstract-background_1393-339.jpg?t=st=1722699081~exp=1722702681~hmac=9d8da260ecab56fdccf90395ac5f79e79eed3cb624261d4977af05e5481c045d&w=1380');
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .home-container p {
-    font-size: 1.5em;
-    line-height: 1.5;
-    color: white;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8; /* Light background for the body */
+}
+
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2c3e50; /* Darker container background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.home-container p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: #ecf0f1; /* Light text color for readability */
+}
