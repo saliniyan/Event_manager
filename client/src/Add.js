@@ -1,7 +1,7 @@
 import React from "react";
 import './Add.css';
 
-const Add = ({ name, setName, date, setDate, place, setPlace, handleFormSubmit }) => {
+const Add = ({ name, setName, date, setDate, place, setPlace, handleFormSubmit ,Organaizer_name, setOrganaizer_name}) => {
   return (
     <div className="form-container">
       <form onSubmit={handleFormSubmit}>
@@ -16,6 +16,10 @@ const Add = ({ name, setName, date, setDate, place, setPlace, handleFormSubmit }
         <div className="form-group">
           <label htmlFor="place">Place:</label>
           <input type="text" id="place" value={place} onChange={(e) => setPlace(e.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="Organaizer_name">Organaizer name</label>
+          <input type="text" id="Organaizer_name" value={Organaizer_name} onChange={(e) => setOrganaizer_name(e.target.value)} required />
         </div>
         <div className="form-group">
           <button type="submit">Add Event</button>

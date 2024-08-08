@@ -12,6 +12,7 @@ const Admin=({event,setevent})=>
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [place, setPlace] = useState('');
+  const [Organaizer_name, setOrganaizer_name] = useState('');
 
   const handlesubmit=()=>{
     setIsFormVisible(true)
@@ -21,7 +22,7 @@ const Admin=({event,setevent})=>
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const id=event.length?event[event.length - 1].id +1 : 1
-    const addnewevent={id,name:name,date:date,place:place}
+    const addnewevent={id,name:name,date:date,place:place,Organaizer_name:Organaizer_name}
     const listitem=[...event,addnewevent]
     setevent(listitem)
     setIsFormVisible(false); // hide the form after submission
@@ -47,6 +48,8 @@ const Admin=({event,setevent})=>
       setDate={setDate}
       place={place}
       setPlace={setPlace}
+      Organaizer_name={Organaizer_name}
+      setOrganaizer_name={setOrganaizer_name}
       handleFormSubmit={handleFormSubmit}
     />
       )}
@@ -55,12 +58,14 @@ const Admin=({event,setevent})=>
           <li key={i.id}>
            <div className="event-item">
               <div className="container">
-                <div className="inner-container">
+                <div>
                 Event name: {i.name}
                 <br />
                 starts on: {i.date}
                 <br />
                 On: {i.place}
+                <br />
+                Organaized By: {i.Organaizer_name}
               </div>
               <button  onClick={()=>deleteevent(i.id)} className="button">Delete Event</button>
             </div>
