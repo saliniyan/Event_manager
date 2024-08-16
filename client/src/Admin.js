@@ -67,7 +67,7 @@ const Admin=({event,setevent})=>
                 <br />
                 Organaized By: {i.Organaizer_name}
               </div>
-              <button  onClick={()=>deleteevent(i.id)} className="button">Delete Event</button>
+              <button onClick={()=>deleteevent(i.id)} className="button">Delete Event</button>
             </div>
             </div>
           </li>

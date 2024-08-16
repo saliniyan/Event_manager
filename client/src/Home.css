@@ -1,22 +1,37 @@
-body {
+.home{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('https://plus.unsplash.com/premium_photo-1720032304972-1f1142e73253?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.bizzabo.com/wp-content/uploads/2022/04/The-Ultimate-Directory-of-Top-UK-Event-Agencies_16x9.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  min-height: 100vh;
+  opacity: 0.7;
+  z-index: -1; /* Ensure the image is behind other content */
 }
 
 .home-container {
   max-width: 800px;
-  margin: 0;
   padding-top: 15%;
+  position: relative; /* Position relative to stack on top of background */
 }
 
 .home-container p {
   font-size: 5em;
   line-height: 1.5;
-  color:gainsboro;
+  color: rgb(73, 51, 238);
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 700;
 }
