@@ -9,32 +9,32 @@ import './App.css';
 import Login from "./Login";
 
 const App = () => {
-    const [event, setevent] = useState(() => {
-        const savedEvents = localStorage.getItem('Events');
-        return savedEvents ? JSON.parse(savedEvents) : [];
-      });
-    
-      useEffect(() => {
-        localStorage.setItem('Events', JSON.stringify(event));
-      }, [event]);
-      
-      return (
-        <Router>
-            <div>
-                <nav className="nav">
-                    <Link to="/">Home</Link>
-                    <Link to="/login">Login</Link>
-                </nav>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/Admin" element={<Admin event={event} setevent={setevent} />} />
-                    <Route path="/Student" element={<Student event={event} />} />
-                    <Route path="/form" element={<FormPage />} />
-                </Routes>
-            </div>
-        </Router>
+    const [event, setEvent] = useState(() => {
+      const savedEvents = localStorage.getItem('Events');
+      return savedEvents ? JSON.parse(savedEvents) : [];
+    });
+  
+    useEffect(() => {
+      localStorage.setItem('Events', JSON.stringify(event));
+    }, [event]);
+  
+    return (
+      <Router>
+        <div>
+          <nav className="nav">
+            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/Admin" element={<Admin event={event} setEvent={setEvent} />} /> {/* Change made here */}
+            <Route path="/Student" element={<Student event={event} />} />
+            <Route path="/form" element={<FormPage />} />
+          </Routes>
+        </div>
+      </Router>
     );
-};
-
+  };
+  
 export default App;

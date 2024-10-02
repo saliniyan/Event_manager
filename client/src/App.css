@@ -6,72 +6,6 @@ body {
   font-size: 16px; 
 }
 
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.list {
-  list-style-type: none;
-}
-
-.event-item {
-  width: 350px;
-  height: 170px;
-  margin: 20px;
-  padding-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.event-item button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.event-item button:hover {
-  background-color: #0056b3;
-}
-
-.button {
-  background-color: rgb(37, 105, 165);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: rgb(17, 69, 114);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .nav {
   display: block;
   background-color: #34495e;
@@ -96,3 +30,5 @@ body {
   background-color: #4CAF50;
   color: white;
 }
+
+
