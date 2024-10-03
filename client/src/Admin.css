@@ -117,3 +117,53 @@
     margin-bottom: 5px;
   }
   
+  .participant-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f8ff;
+    transition: background-color 0.3s;
+  }
+  
+  .participant-card:hover {
+    background-color: #e0f7fa;
+  }
+  
+  .participant-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f8ff;
+    transition: background-color 0.3s;
+  }
+  
+  .participant-card:hover {
+    background-color: #e0f7fa;
+  }
+  
+  .participant-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .participant-card .participant-name {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #771616;
+  }
+  
+  .participant-card .participant-email {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #771616;
+  }
+  
+  .participant-card .participant-time {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #0c7a1a;
+  }
+  
