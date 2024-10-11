@@ -7,9 +7,6 @@
 # testing
 /client/coverage
 
-# production
-
-
 # misc
 /client/.DS_Store
 /client/.env.local
