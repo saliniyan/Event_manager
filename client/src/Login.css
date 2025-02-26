@@ -1,17 +1,56 @@
-.divider:after,
-.divider:before {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #eee;
+.login-container .divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.h-custom {
+.login-container .divider:after,
+.login-container .divider:before {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.5), transparent);
+    border-radius: 2px;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-container .divider:hover:after,
+.login-container .divider:hover:before {
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.8), transparent);
+    height: 3px;
+}
+
+.login-container .h-custom {
     height: calc(100% - 73px);
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .login-container .h-custom {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    .login-container .divider {
+        font-size: 0.8rem;
+    }
+    .login-container .divider:after,
+    .login-container .divider:before {
+        margin: 0 0.5rem;
+    }
 }
 
 @media (max-width: 450px) {
-    .h-custom {
+    .login-container .h-custom {
         height: 100%;
+        padding: 1.5rem 0;
     }
 }

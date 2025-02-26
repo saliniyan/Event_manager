@@ -1,169 +1,329 @@
 .container {
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-.head{
-    font-size: 2em;
-    font-weight: 1000;
-    color: rgb(55, 55, 136);
-    font-family: 'Comic Sans MS', cursive, sans-serif; 
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(120deg, #f8f9fa, #e9ecef);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }
 
-  .search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(0, 123, 255, 0.2);
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 4px;
+  bottom: -3px;
+  left: 0;
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  border-radius: 2px;
+}
+
+.head {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(120deg, #495057, #007bff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Bar Styles */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 350px;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #495057;
+  background: transparent;
+}
+
+.search-icon {
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+/* Add Event Button */
+.create-event-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.create-event-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+  background: linear-gradient(135deg, #0069d9, #5e0de0);
+}
+
+.plus-icon {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+}
+
+/* Event Grid Styles */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.event-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid #007bff;
+}
+
+.event-card-content {
+  padding: 1.5rem;
+}
+
+.event-card h3 {
+  color: #343a40;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.event-card h3::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  border-radius: 2px;
+}
+
+.event-card p {
+  color: #6c757d;
+  margin: 0.7rem 0;
+  line-height: 1.5;
+}
+
+.event-card button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.event-card button:hover {
+  background: #0069d9;
+  transform: translateY(-2px);
+}
+
+.event-card button:nth-of-type(1) {
+  background: #dc3545;
+}
+
+.event-card button:nth-of-type(1):hover {
+  background: #c82333;
+}
+
+/* Participants Styles */
+.participants-list {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e9ecef;
+}
+
+.participants-list h4 {
+  color: #343a40;
+  margin-top: 0;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.participants-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.participant-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.participant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.participant-details p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.participant-name {
+  color: #343a40;
+  font-weight: 500;
+}
+
+.participant-email {
+  color: #6c757d;
+}
+
+.participant-time {
+  color: #6c757d;
+  font-size: 0.85rem !important;
+}
+
+/* Add Form Styles (adjust as needed based on your Add component) */
+form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .search-input {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .search-icon {
-    position: absolute;
-    right: 10px;
-    color: #007bff;
+}
+
+/* Loading indicator */
+p:has(+ .participants-list), 
+p:contains("Loading participants...") {
+  color: #007bff;
+  margin: 1rem 0;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p:contains("Loading participants...")::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 3px solid #e9ecef;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  /* Event Grid */
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
   .event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  .event-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: #fff;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .event-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .event-card img {
+  .search-bar {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    margin-top: 1rem;
   }
   
-  .event-card-content {
-    padding: 15px;
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
   }
   
-  .event-card h3 {
-    font-size: 18px;
-    margin: 10px 0;
+  .head {
+    font-size: 2rem;
   }
-  
-  .event-card p {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .event-card button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .event-card button:hover {
-    background-color: #0056b3;
-  }
-  
-  .create-event-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #007bff;
-    font-size: 14px;
-    background: none;
-    border: none;
-    outline: none;
-    transition: color 0.3s ease;
-  }
-  
-  .create-event-container:hover {
-    color: #0056b3;
-  }
-  
-  .plus-icon {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  
-  .participant-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #f0f8ff;
-    transition: background-color 0.3s;
-  }
-  
-  .participant-card:hover {
-    background-color: #e0f7fa;
-  }
-  
-  .participant-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #f0f8ff;
-    transition: background-color 0.3s;
-  }
-  
-  .participant-card:hover {
-    background-color: #e0f7fa;
-  }
-  
-  .participant-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .participant-card .participant-name {
-    margin: 5px 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #771616;
-  }
-  
-  .participant-card .participant-email {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #771616;
-  }
-  
-  .participant-card .participant-time {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #0c7a1a;
-  }
-  
+}

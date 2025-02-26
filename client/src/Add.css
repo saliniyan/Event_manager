@@ -1,55 +1,192 @@
-body{
-
-}
 .form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+/* Make some form groups span full width */
+.form-group:nth-child(5),
+.form-group:nth-child(6),
+.form-group:nth-child(7) {
+  grid-column: span 2;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Style file input */
+input[type="file"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #f8f9fa;
+  border: 1px dashed #adb5bd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(135deg, #0069d9, #5e0de0);
+}
+
+/* Image preview */
+.form-group img {
+  width: 150px !important;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 1rem !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid white;
+  transition: all 0.3s ease;
+}
+
+.form-group img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styles */
+button[type="submit"] {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #0069d9, #5e0de0);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Animation for form appearance */
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container {
+  animation: formAppear 0.4s ease-out forwards;
+}
+
+/* Focus styles */
+.form-group:focus-within label {
+  color: #007bff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
   }
   
-  .form-group {
-    margin-bottom: 15px;
+  .form-group:nth-child(5),
+  .form-group:nth-child(6),
+  .form-group:nth-child(7) {
+    grid-column: span 1;
   }
   
-  .form-group label {
-    display: block;
-    font-weight: bold;
+  .form-container {
+    padding: 1.5rem;
   }
-  
-  .form-group input[type="text"],
-  .form-group input[type="date"],
-  .form-group input[type="time"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .form-group textarea {
-    width: calc(100% - 20px);
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  
-  .form-group button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-group button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+/* Improved input for descriptions */
+#desc {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Focus-visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 1px;
+}

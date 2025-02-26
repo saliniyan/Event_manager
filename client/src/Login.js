@@ -24,7 +24,7 @@ const Login = () => {
     
 
     return (
-        <section className="vh-100">
+        <section className="vh-100 login-container">
             <div className="container-fluid h-custom">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-md-9 col-lg-6 col-xl-5">
@@ -36,11 +36,7 @@ const Login = () => {
                     </div>
                     <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                         <form onSubmit={handleLogin}>
-                            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-                            </div>
-                            <br />
-                            {/* Email input */}
+                            {/* Username (Email) Input */}
                             <div className="form-outline mb-4">
                                 <input
                                     type="email"
@@ -51,8 +47,8 @@ const Login = () => {
                                 />
                                 <label className="form-label" htmlFor="form3Example3">Email address</label>
                             </div>
-
-                            {/* Password input */}
+    
+                            {/* Password Input Below Email */}
                             <div className="form-outline mb-3">
                                 <input
                                     type="password"
@@ -63,10 +59,10 @@ const Login = () => {
                                 />
                                 <label className="form-label" htmlFor="form3Example4">Password</label>
                             </div>
-
-                            <div className="d-flex justify-content-between align-items-center">
-                                {/* Checkbox */}
-                                <div className="form-check mb-0">
+    
+                            {/* Remember Me and Forgot Password (Stacked) */}
+                            <div className="d-flex flex-column align-items-start">
+                                <div className="form-check mb-2">
                                     <input
                                         className="form-check-input me-2"
                                         type="checkbox"
@@ -78,7 +74,8 @@ const Login = () => {
                                 </div>
                                 <a href="#!" className="text-body">Forgot password?</a>
                             </div>
-
+    
+                            {/* Submit Button */}
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <button
                                     type="submit"
@@ -97,6 +94,7 @@ const Login = () => {
             </div>
         </section>
     );
+
 };
 
 export default Login;

@@ -1,58 +1,182 @@
-/* Home.css */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
 .home-container {
-  text-align: center;
-  padding: 20px;
+  max-width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 .home-header {
-  margin-bottom: 30px;
+  padding: 3rem 5%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .main-heading {
-  font-size: 3em;
-  font-weight: 800;
-  color: #3749a6;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  font-size: 3.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.main-heading::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: -10px;
+  left: 25%;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: expandLine 1.5s ease forwards 0.5s;
 }
 
 .sub-heading {
-  font-size: 1.5em;
-  color: #4a4a4a;
-  margin-top: 10px;
+  font-size: 1.4rem;
+  color: #34495e;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  line-height: 1.6;
 }
 
 .banner {
   position: relative;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 500px;
+  margin: 2rem 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  animation: zoomIn 20s linear infinite alternate;
 }
 
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(52, 152, 219, 0.8), rgba(155, 89, 182, 0.8));
+  opacity: 0.7;
+  z-index: 1;
+}
 
 .banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 5%;
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
 }
 
 .tagline {
-  font-size: 2em;
+  font-size: 3rem;
   font-weight: 700;
-  color: #ffda79;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: slideInFromLeft 1s ease-out;
 }
 
 .description {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards 0.8s;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  
+  .sub-heading {
+    font-size: 1.1rem;
+  }
+  
+  .banner {
+    height: 400px;
+  }
+  
+  .tagline {
+    font-size: 2.2rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    padding: 2rem 5%;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .banner {
+    height: 300px;
+  }
+  
+  .tagline {
+    font-size: 1.8rem;
+  }
+}
+
+/* Add this class to create a button for your banner if needed */
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: white;
+  color: #3498db;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+  background: #f8f9fa;
+}

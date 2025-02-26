@@ -1,71 +1,174 @@
+/* Student Page Styles */
 .event-container1 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 3rem 5%;
 }
 
 .event-item1 {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  transition: transform 0.2s;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .event-item1:hover {
-  transform: scale(1.02);
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
 }
 
-.event-name1 {
-  font-family: 'Arial', sans-serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
-
-.event-date1 {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2rem;
-  color: rgb(11, 110, 168);
-  margin: 5px 0;
-}
-
-.event-location1 {
-  font-family: 'Georgia', serif;
-  font-size: 1.2rem;
-  color: rgb(11, 110, 168);
-  margin: 5px 0;
-}
-
-.event-desc {
-  font-size: 1rem;
-  margin: 5px 0;
+.event-image1 {
+  position: relative;
+  height: auto;
+  max-height: 220px;
+  overflow: hidden;
 }
 
 .event-image1 img {
-  max-width: 100%;
-  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.event-item1:hover .event-image1 img {
+  transform: scale(1.08);
+}
+
+.event-name1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 1.5rem 1rem 1rem;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.event-details1 {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .event-info1 {
-  margin: 10px 0;
+  margin-bottom: 1rem;
+}
+
+.event-date1, .event-location1 {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.event-date1 {
+  color: #343a40;
+  margin-bottom: 0.8rem;
+}
+
+.event-date1::before {
+  content: '📅';
+  margin-right: 0.5rem;
+}
+
+.event-location1 {
+  color: #6c757d;
+}
+
+.event-location1::before {
+  content: '📍';
+  margin-right: 0.5rem;
+}
+
+.event-desc {
+  color: #495057;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  padding-left: 0.5rem;
+  border-left: 3px solid #3498db;
 }
 
 .apply-button1 {
-  background-color: #007bff;
-  color: #fff;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  border-radius: 30px;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.apply-button1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  transition: all 0.4s ease;
+  z-index: -1;
+  border-radius: 30px;
 }
 
 .apply-button1:hover {
-  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(52, 152, 219, 0.4);
+}
+
+.apply-button1:hover::before {
+  width: 100%;
+}
+
+/* Empty state */
+.event-container1:empty::after {
+  content: "No events available at the moment. Check back later!";
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .event-container1 {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .event-name1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-container1 {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  
+  .event-image1 {
+    height: 150px;
+  }
 }
