@@ -3,6 +3,9 @@
 ## Overview  
 Event Manager is a web-based application designed to streamline event creation, management, and participation. It provides a seamless experience for both event organizers and attendees, enabling efficient event coordination.
 
+##Hosted Link(only frontend)
+[Visit Event Manager](https://saliniyan-event-manager.netlify.app/)
+
 ## Features  
 ### Admin  
 - Create and delete events  
